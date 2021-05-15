@@ -1,0 +1,27 @@
+{
+  "name": "ocaml-re",
+  "version": "1.0.0",
+  "description": "Description ===========",
+  "main": "index.js",
+  "directories": {
+    "lib": "src"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/idkjs/ocaml-re.git"
+  },
+  "keywords": [],
+  "author": "Alain Armand",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/idkjs/ocaml-re/issues"
+  },
+  "homepage": "https://github.com/idkjs/ocaml-re#readme",
+  "dependencies": {
+    "ocaml-re": "git://github.com/idkjs/ocaml-re.git#js",
+    "seq": "idkjs/seq.git"
+  }
+}

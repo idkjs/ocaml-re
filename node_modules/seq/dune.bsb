@@ -1,0 +1,72 @@
+;;;;{BSB GENERATED: NO EDIT
+(subdir ./src
+(rule
+(targets  seq_alias.ast)
+ (deps (:inputs  seq_alias.ml) )
+(action
+ (run bsc  -w a -bs-g -absname -bs-ast -o %{targets} %{inputs}))
+(enabled_if (= %{ocaml_version} "4.12.0")) )
+ (rule
+(targets  seq_alias.iast)
+ (deps (:inputs  seq_alias.mli) )
+(action
+ (run bsc  -w a -bs-g -absname -bs-ast -o %{targets} %{inputs}))
+(enabled_if (= %{ocaml_version} "4.12.0")) )
+ (rule
+(targets  seq_alias.cmi seq_alias.cmti)
+ (deps (:inputs  seq_alias.iast)  (:ast_deps .././src/seq_alias.ast .././src/seq_alias.iast) ../bsconfig.json)
+(action
+ (progn (dynamic-run bsb_helper -root /Users/mando/Github/seq -cwd ./src %{ast_deps}) (run bsc -I .    -w a -o seq_alias.cmi %{inputs})))
+(enabled_if (= %{ocaml_version} "4.12.0")) )
+ (rule
+(targets  seq_alias.cmj seq_alias.cmt seq_alias.bs.js)
+ (mode (promote (until-clean) (only seq_alias.bs.js)))(deps (:inputs  seq_alias.ast)  seq_alias.cmi (:ast_deps .././src/seq_alias.ast .././src/seq_alias.iast) ../bsconfig.json)
+(action
+ (progn (dynamic-run bsb_helper -root /Users/mando/Github/seq -cwd ./src %{ast_deps}) (run bsc -bs-read-cmi -I .    -w a -bs-package-name story-engine -bs-package-output commonjs:./src:.bs.js -o seq_alias.cmj %{inputs})))
+(enabled_if (= %{ocaml_version} "4.12.0")) )
+ (rule
+(targets  seq_redef.ast)
+ (deps (:inputs  seq_redef.ml) )
+(action
+ (run bsc  -w a -bs-g -absname -bs-ast -o %{targets} %{inputs}))
+(enabled_if (= %{ocaml_version} "4.12.0")) )
+ (rule
+(targets  seq_redef.iast)
+ (deps (:inputs  seq_redef.mli) )
+(action
+ (run bsc  -w a -bs-g -absname -bs-ast -o %{targets} %{inputs}))
+(enabled_if (= %{ocaml_version} "4.12.0")) )
+ (rule
+(targets  seq_redef.cmi seq_redef.cmti)
+ (deps (:inputs  seq_redef.iast)  (:ast_deps .././src/seq_redef.ast .././src/seq_redef.iast) ../bsconfig.json)
+(action
+ (progn (dynamic-run bsb_helper -root /Users/mando/Github/seq -cwd ./src %{ast_deps}) (run bsc -I .    -w a -o seq_redef.cmi %{inputs})))
+(enabled_if (= %{ocaml_version} "4.12.0")) )
+ (rule
+(targets  seq_redef.cmj seq_redef.cmt seq_redef.bs.js)
+ (mode (promote (until-clean) (only seq_redef.bs.js)))(deps (:inputs  seq_redef.ast)  seq_redef.cmi (:ast_deps .././src/seq_redef.ast .././src/seq_redef.iast) ../bsconfig.json)
+(action
+ (progn (dynamic-run bsb_helper -root /Users/mando/Github/seq -cwd ./src %{ast_deps}) (run bsc -bs-read-cmi -I .    -w a -bs-package-name story-engine -bs-package-output commonjs:./src:.bs.js -o seq_redef.cmj %{inputs})))
+(enabled_if (= %{ocaml_version} "4.12.0")) )
+ (rule
+(targets  select_version.ast)
+ (deps (:inputs  select_version.ml) )
+(action
+ (run bsc  -w a -bs-g -absname -bs-ast -o %{targets} %{inputs}))
+(enabled_if (= %{ocaml_version} "4.12.0")) )
+ (rule
+(targets  select_version.cmj select_version.cmi select_version.cmt select_version.bs.js)
+ (mode (promote (until-clean) (only select_version.bs.js)))(deps (:inputs  select_version.ast)  (:ast_deps .././src/select_version.ast ) ../bsconfig.json)
+(action
+ (progn (dynamic-run bsb_helper -root /Users/mando/Github/seq -cwd ./src %{ast_deps}) (run bsc -I .    -w a -bs-package-name story-engine -bs-package-output commonjs:./src:.bs.js -o select_version.cmj %{inputs})))
+(enabled_if (= %{ocaml_version} "4.12.0")) )
+ 
+(alias (name bsb_world)(deps  select_version.bs.js seq_redef.bs.js seq_alias.bs.js)
+(enabled_if (= %{ocaml_version} "4.12.0"))))
+
+
+(subdir .melange.eobjs)
+
+(data_only_dirs node_modules .melange.eobjs)
+(alias (name bsb_world))
+;;;;BSB GENERATED: NO EDIT}

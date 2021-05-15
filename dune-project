@@ -1,3 +1,5 @@
-(lang dune 1.0)
+(lang dune 2.7)
+
+(using action-plugin 0.1)
 
 (name re)
